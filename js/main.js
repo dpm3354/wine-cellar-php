@@ -1,5 +1,7 @@
 // The root URL for the RESTful services
-var rootURL = "http://localhost/cellar/api/wines";
+
+var rootURL = "http://localhost:8888/api/wines";
+//var rootURL = "http://localhost:8888";
 
 var currentWine;
 

@@ -42,7 +42,7 @@ function getWine($id) {
 }
 
 function addWine() {
-	error_log('addWine\n', 3, '/var/tmp/php.log');
+	//error_log('addWine\n', 3, '/var/tmp/php.log');
 	$request = Slim::getInstance()->request();
 	$wine = json_decode($request->getBody());
 	$sql = "INSERT INTO wine (name, grapes, country, region, year, description) VALUES (:name, :grapes, :country, :region, :year, :description)";
@@ -60,7 +60,7 @@ function addWine() {
 		$db = null;
 		echo json_encode($wine); 
 	} catch(PDOException $e) {
-		error_log($e->getMessage(), 3, '/var/tmp/php.log');
+		//error_log($e->getMessage(), 3, '/var/tmp/php.log');
 		echo '{"error":{"text":'. $e->getMessage() .'}}'; 
 	}
 }
@@ -120,7 +120,7 @@ function findByName($query) {
 function getConnection() {
 	$dbhost="127.0.0.1";
 	$dbuser="root";
-	$dbpass="";
+	$dbpass="root";
 	$dbname="cellar";
 	$dbh = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);	
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
